@@ -16,7 +16,7 @@ SET_ADDRESS = 0x80
 ROW_START = (0x00,0x40)
 
 class LCD:
-    def __init__(self,scl=None,sda=None,addr=0x27,freq=400000):
+    def __init__(self, scl=22, sda=21, addr=0x27, freq=100000):
         self.i2c = SoftI2C(scl=Pin(scl), sda=Pin(sda), freq=freq)
         self.addr = addr
         self.light = BACKLIGHT
