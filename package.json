@@ -1,0 +1,6 @@
+{
+  "urls": [
+    ["lcd1602.py",  "drivers/lcd1602/lcd1602.py"],
+  ],
+  "version": "0.1.0"
+}
