@@ -1,6 +1,13 @@
 {
   "urls": [
     ["lcd1602.py",  "drivers/lcd1602/lcd1602.py"],
+    ["sevenseg.py", "drivers/sevenseg/sevenseg.py"],
+    ["ir_nec.py",   "drivers/ir_nec/ir_nec.py"],
+    ["hcsr04.py",   "drivers/hcsr04/hcsr04.py"],
+    ["servo.py",    "drivers/servo/servo.py"],
+    ["motor.py",    "drivers/motor/motor.py"],
+    ["buzzer.py",   "drivers/buzzer/buzzer.py"],
+    ["keypad.py",   "drivers/keypad/keypad.py"]
   ],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

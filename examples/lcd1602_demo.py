@@ -1,11 +1,11 @@
 # 1602 LCD
-# Wiring: GND -> GND, VCC -> 5V, SDA -> 19, SCL -> 22
+# Wiring: GND -> GND, VCC -> 5V, SDA -> 21, SCL -> 22
 # Install: mpremote mip install github:aitumik/lancola/drivers/lcd1602
 
 from time import sleep
 from lcd1602 import LCD
 
-lcd = LCD()          # use LCD(sda=21) if SDA is wired to pin 21
+lcd = LCD()          # defaults: SDA 21, SCL 22, address 0x27
 lcd.scan()           # should print ['0x27'] (some boards use 0x3f)
 
 # Two lines of text

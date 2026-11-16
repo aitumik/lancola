@@ -1,5 +1,5 @@
 from time import sleep_ms
-from machine import Pin,I2C,SoftI2C
+from machine import Pin,I2C
 
 RS = 0x01
 
@@ -16,8 +16,17 @@ SET_ADDRESS = 0x80
 ROW_START = (0x00,0x40)
 
 class LCD:
+    """16x2 character LCD with an I2C backpack (PCF8574, address 0x27 or 0x3F).
+
+    The backpack turns 8 I2C bits into LCD pins:
+      bit 0 RS (0 = command, 1 = character), bit 2 ENABLE,
+      bit 3 backlight, bits 4-7 = 4 data bits.
+    Each byte is sent as two halves (nibbles), each latched by an ENABLE pulse.
+    """
+
     def __init__(self, scl=22, sda=21, addr=0x27, freq=100000):
-        self.i2c = SoftI2C(scl=Pin(scl), sda=Pin(sda), freq=freq)
+        # Hardware I2C bus 0: much faster than SoftI2C at the same freq
+        self.i2c = I2C(0, scl=Pin(scl), sda=Pin(sda), freq=freq)
         self.addr = addr
         self.light = BACKLIGHT
         self.start()
